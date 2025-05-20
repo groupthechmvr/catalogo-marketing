@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GroupTechMVR - Catálogo de Social Media Marketing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6e45e2;
+            --secondary: #88d3ce;
+            --dark: #2a2a72;
+            --light: #f8f9fa;
+            --accent: #ff7e5f;
+            --text: #333;
+            --text-light: #777;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f5f7ff;
+            color: var(--text);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Efeito de Partículas */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Cursor Personalizado */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(110, 69, 226, 0.5);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+
+        .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease-out, width 0.2s ease, height 0.2s ease;
+        }
+
+        /* Header */
+        .catalog-header {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .catalog-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://assets.codepen.io/3364143/7b039f3b-8d7f-4c4b-96af-289e00b8a6b3.png') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .catalog-header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .catalog-logo {
+            width: 180px;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+        }
+
+        .catalog-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, white, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .catalog-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
+
+        /* Seção de Introdução */
+        .intro-section {
+            padding: 5rem 2rem;
+            background-color: white;
+            position: relative;
+        }
+
+        .intro-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .intro-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 3rem;
+        }
+
+        .intro-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .intro-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .intro-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .intro-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f5f7ff, #e6e9ff);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .intro-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .social-mockup {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .mockup-main {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: perspective(1000px) rotateY(-15deg);
+            transition: transform 0.5s ease;
+        }
+
+        .mockup-main:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .mockup-floating {
+            position: absolute;
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.5s ease;
+        }
+
+        .mockup-1 {
+            top: -10%;
+            left: -10%;
+            transform: rotate(-10deg);
+            z-index: 1;
+        }
+
+        .mockup-2 {
+            bottom: -10%;
+            right: -10%;
+            transform: rotate(10deg);
+            z-index: 1;
+        }
+
+        .social-mockup:hover .mockup-1 {
+            top: -15%;
+            left: -15%;
+            transform: rotate(-15deg);
+        }
+
+        .social-mockup:hover .mockup-2 {
+            bottom: -15%;
+            right: -15%;
+            transform: rotate(15deg);
+        }
+
+        /* Seção de Serviços */
+        .services-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f5f7ff, #e6e9ff);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(110, 69, 226, 0.1), rgba(136, 211, 206, 0.1));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-icon i {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon i {
+            transform: scale(1.2);
+        }
+
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(110, 69, 226, 0.1), rgba(136, 211, 206, 0.1));
+            border-radius: 50%;
+            top: -50%;
+            left: -50%;
+            transition: all 0.5s ease;
+        }
+
+        .service-card:hover .service-icon::after {
+            transform: scale(1.5);
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .service-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .service-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            list-style: none;
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 25px;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .service-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent);
+        }
+
+        .service-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(110, 69, 226, 0.3);
+        }
+
+        .service-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(110, 69, 226, 0.4);
+        }
+
+        /* Seção de Processo */
+        .process-section {
+            padding: 5rem 2rem;
+            background-color: white;
+            position: relative;
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(110, 69, 226, 0.05), rgba(136, 211, 206, 0.05));
+            border-radius: 15px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .process-step:hover::before {
+            opacity: 1;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 5px 15px rgba(110, 69, 226, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .process-step:hover .step-number {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .step-description {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .process-connector {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            z-index: 0;
+            opacity: 0.2;
+        }
+
+        /* Seção de Preços */
+        .pricing-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f5f7ff, #e6e9ff);
+            position: relative;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-card.popular {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 2px solid var(--primary);
+        }
+
+        .pricing-card.popular::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+            z-index: 2;
+        }
+
+        .pricing-header {
+            padding: 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-period {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .pricing-features {
+            padding: 2rem;
+        }
+
+        .pricing-features ul {
+            list-style: none;
+        }
+
+        .pricing-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            color: var(--text);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .pricing-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0.8rem;
+            color: var(--accent);
+        }
+
+        .pricing-features li.disabled {
+            color: var(--text-light);
+        }
+
+        .pricing-features li.disabled::before {
+            content: '\f00d';
+            color: #ccc;
+        }
+
+        .pricing-button {
+            display: block;
+            text-align: center;
+            padding: 1rem;
+            margin: 0 2rem 2rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(110, 69, 226, 0.3);
+        }
+
+        .pricing-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(110, 69, 226, 0.4);
+        }
+
+        .pricing-card.popular .pricing-button {
+            background: var(--accent);
+            box-shadow: 0 5px 15px rgba(255, 126, 95, 0.3);
+        }
+
+        .pricing-card.popular .pricing-button:hover {
+            box-shadow: 0 8px 20px rgba(255, 126, 95, 0.4);
+        }
+
+        /* Seção de Portfólio */
+        .portfolio-section {
+            padding: 5rem 2rem;
+            background-color: white;
+            position: relative;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            height: 250px;
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(42, 42, 114, 0.8), rgba(110, 69, 226, 0.8));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.1);
+        }
+
+        .portfolio-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-category {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.1s;
+        }
+
+        .portfolio-link {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transform: translateY(20px);
+            transition: all 0.3s ease 0.2s;
+        }
+
+        .portfolio-item:hover .portfolio-title,
+        .portfolio-item:hover .portfolio-category,
+        .portfolio-item:hover .portfolio-link {
+            transform: translateY(0);
+        }
+
+        /* Seção de CTA */
+        .cta-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://assets.codepen.io/3364143/7b039f3b-8d7f-4c4b-96af-289e00b8a6b3.png') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Rodapé */
+        .footer {
+            padding: 3rem 2rem;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 150px;
+            margin-bottom: 1.5rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+        }
+
+        .footer-copyright {
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        /* Animações */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .catalog-title {
+                font-size: 2.5rem;
+            }
+            
+            .catalog-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .intro-content {
+                flex-direction: column;
+            }
+            
+            .intro-text {
+                padding-right: 0;
+                margin-bottom: 3rem;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-step {
+                max-width: 100%;
+            }
+            
+            .process-connector {
+                display: none;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Efeito de Cursor Personalizado -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Efeito de Partículas -->
+    <div id="particles-js"></div>
+
+    <!-- Header do Catálogo -->
+    <header class="catalog-header">
+        <div class="catalog-header-content">
+            <img src="https://via.placeholder.com/180x60?text=GroupTechMVR" alt="GroupTechMVR" class="catalog-logo">
+            <h1 class="catalog-title">SOCIAL MEDIA MARKETING</h1>
+            <p class="catalog-subtitle">Estratégias avançadas para impulsionar sua presença nas redes sociais, engajar seu público e converter seguidores em clientes.</p>
+            <a href="#services" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </header>
+
+    <!-- Seção de Introdução -->
+    <section class="intro-section">
+        <div class="intro-content">
+            <div class="intro-text">
+                <h2>Transforme suas redes sociais em máquinas de vendas</h2>
+                <p>No mundo digital atual, ter uma estratégia de mídia social eficaz não é mais opcional - é essencial. Nossa equipe de especialistas em Social Media Marketing cria campanhas personalizadas que não apenas aumentam seu alcance, mas também convertem seguidores em clientes fiéis.</p>
+                <p>Combinamos criatividade, análise de dados e estratégias comprovadas para garantir que sua marca se destaque em meio ao ruído digital.</p>
+                
+                <div class="intro-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">+87%</div>
+                        <div class="stat-label">Aumento no engajamento</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3.5x</div>
+                        <div class="stat-label">Mais conversões</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Monitoramento</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="intro-image">
+                <div class="social-mockup">
+                    <img src="https://via.placeholder.com/500x800/6e45e2/ffffff?text=Instagram" alt="Instagram Mockup" class="mockup-main">
+                    <img src="https://via.placeholder.com/200x350/88d3ce/ffffff?text=Facebook" alt="Facebook Mockup" class="mockup-floating mockup-1">
+                    <img src="https://via.placeholder.com/200x350/ff7e5f/ffffff?text=LinkedIn" alt="LinkedIn Mockup" class="mockup-floating mockup-2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Serviços -->
+    <section class="services-section" id="services">
+        <div class="section-title">
+            <h2>Nossos Serviços de Social Media</h2>
+            <p>Oferecemos um conjunto completo de serviços para gerenciar e otimizar sua presença nas redes sociais</p>
+        </div>
+        
+        <div class="services-grid">
+            <!-- Serviço 1 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Estratégia Personalizada</h3>
+                    <p>Desenvolvemos uma estratégia única baseada em dados e no DNA da sua marca para maximizar resultados.</p>
+                    <div class="service-features">
+                        <ul>
+                            <li>Análise de mercado completa</li>
+                            <li>Definição de persona e tom de voz</li>
+                            <li>Plano de conteúdo trimestral</li>
+                            <li>KPIs personalizados</li>
+                        </ul>
+                    </div>
+                    <button class="service-button">Saiba mais</button>
+                </div>
+            </div>
+            
+            <!-- Serviço 2 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-pencil-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Criação de Conteúdo</h3>
+                    <p>Conteúdo visualmente impressionante e estrategicamente projetado para engajar seu público.</p>
+                    <div class="service-features">
+                        <ul>
+                            <li>Fotos e vídeos profissionais</li>
+                            <li>Design gráfico especializado</li>
+                            <li>Copywriting persuasivo</li>
+                            <li>Edição premium</li>
+                        </ul>
+                    </div>
+                    <button class="service-button">Saiba mais</button>
+                </div>
+            </div>
+            
+            <!-- Serviço 3 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-ad"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Gestão de Tráfego Pago</h3>
+                    <p>Campanhas otimizadas para levar seu conteúdo às pessoas certas no momento certo.</p>
+                    <div class="service-features">
+                        <ul>
+                            <li>Segmentação avançada</li>
+                            <li>Testes A/B contínuos</li>
+                            <li>Otimização em tempo real</li>
+                            <li>Relatórios detalhados</li>
+                        </ul>
+                    </div>
+                    <button class="service-button">Saiba mais</button>
+                </div>
+            </div>
+            
+            <!-- Serviço 4 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Gestão de Comunidade</h3>
+                    <p>Construímos relacionamentos genuínos com seu público para fidelização e advocacy.</p>
+                    <div class="service-features">
+                        <ul>
+                            <li>Resposta a comentários e DMs</li>
+                            <li>Moderação profissional</li>
+                            <li>Estratégias de engajamento</li>
+                            <li>User-generated content</li>
+                        </ul>
+                    </div>
+                    <button class="service-button">Saiba mais</button>
+                </div>
+            </div>
+            
+            <!-- Serviço 5 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-analytics"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Análise e Relatórios</h3>
+                    <p>Métricas transparentes e insights acionáveis para orientar sua estratégia.</p>
+                    <div class="service-features">
+                        <ul>
+                            <li>Relatórios mensais detalhados</li>
+                            <li>Análise de concorrência</li>
+                            <li>Recomendações estratégicas</li>
+                            <li>Dashboard personalizado</li>
+                        </ul>
+                    </div>
+                    <button class="service-button">Saiba mais</button>
+                </div>
+            </div>
+            
+            <!-- Serviço 6 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Influencer Marketing</h3>
+                    <p>Parcerias estratégicas com influenciadores para ampliar seu alcance organicamente.</p>
+                    <div class="service-features">
+                        <ul>
+                            <li>Identificação de influenciadores</li>
+                            <li>Negociação e contratação</li>
+                            <li>Gestão de campanhas</li>
+                            <li>Análise de resultados</li>
+                        </ul>
+                    </div>
+                    <button class="service-button">Saiba mais</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Processo -->
+    <section class="process-section">
+        <div class="process-container">
+            <div class="section-title">
+                <h2>Nosso Processo</h2>
+                <p>Uma abordagem sistemática para garantir resultados excepcionais em suas redes sociais</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-connector"></div>
+                
+                <!-- Passo 1 -->
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Descoberta</h3>
+                    <p class="step-description">Análise profunda da sua marca, público-alvo e concorrência para estabelecer metas realistas.</p>
+                </div>
+                
+                <!-- Passo 2 -->
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Estratégia</h3>
+                    <p class="step-description">Desenvolvimento de um plano personalizado com táticas específicas para cada plataforma.</p>
+                </div>
+                
+                <!-- Passo 3 -->
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Execução</h3>
+                    <p class="step-description">Implementação da estratégia com conteúdo de alta qualidade e gestão ativa das contas.</p>
+                </div>
+                
+                <!-- Passo 4 -->
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Otimização</h3>
+                    <p class="step-description">Ajustes contínuos baseados em dados para maximizar o desempenho das campanhas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Preços -->
+    <section class="pricing-section" id="pricing">
+        <div class="section-title">
+            <h2>Tabela de Valores</h2>
+            <p>Planos flexíveis para atender às necessidades do seu negócio</p>
+        </div>
+        
+        <div class="pricing-grid">
+            <!-- Plano Básico -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="pricing-title">Básico</h3>
+                    <div class="pricing-price">R$1.499</div>
+                    <div class="pricing-period">por mês</div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li>3 posts por semana</li>
+                        <li>1 plataforma social</li>
+                        <li>Design gráfico básico</li>
+                        <li>Relatório mensal</li>
+                        <li class="disabled">Gestão de anúncios</li>
+                        <li class="disabled">Gestão de comunidade</li>
+                        <li class="disabled">Estratégia personalizada</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="pricing-button">Contratar</a>
+            </div>
+            
+            <!-- Plano Profissional -->
+            <div class="pricing-card popular">
+                <div class="pricing-header">
+                    <h3 class="pricing-title">Profissional</h3>
+                    <div class="pricing-price">R$2.999</div>
+                    <div class="pricing-period">por mês</div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li>5 posts por semana</li>
+                        <li>2 plataformas sociais</li>
+                        <li>Design gráfico premium</li>
+                        <li>Relatório quinzenal</li>
+                        <li>Gestão de anúncios (R$500/mês adicional)</li>
+                        <li>Gestão de comunidade básica</li>
+                        <li class="disabled">Estratégia personalizada</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="pricing-button">Contratar</a>
+            </div>
+            
+            <!-- Plano Enterprise -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="pricing-title">Enterprise</h3>
+                    <div class="pricing-price">R$4.999</div>
+                    <div class="pricing-period">por mês</div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li>Posts diários</li>
+                        <li>3 plataformas sociais</li>
+                        <li>Design gráfico premium</li>
+                        <li>Relatório semanal</li>
+                        <li>Gestão de anúncios inclusa</li>
+                        <li>Gestão de comunidade completa</li>
+                        <li>Estratégia personalizada</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="pricing-button">Contratar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Portfólio -->
+    <section class="portfolio-section" id="portfolio">
+        <div class="section-title">
+            <h2>Cases de Sucesso</h2>
+            <p>Alguns dos resultados incríveis que alcançamos para nossos clientes</p>
+        </div>
+        
+        <div class="portfolio-grid">
+            <!-- Item 1 -->
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/600x400/6e45e2/ffffff?text=Beleza" alt="Case Materias" class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Casa de Materias de Construção</h3>
+                    <p class="portfolio-category">Instagram Marketing</p>
+                    <a href="#" class="portfolio-link">Ver Case</a>
+                </div>
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/600x400/88d3ce/ffffff?text=Tech" alt="Case Tech" class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Startup Tech</h3>
+                    <p class="portfolio-category">LinkedIn Strategy</p>
+                    <a href="#" class="portfolio-link">Ver Case</a>
+                </div>
+            </div>
+            
+            <!-- Item 3 -->
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/600x400/ff7e5f/ffffff?text=Restaurante" alt="Case Restaurante" class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Restaurante Gourmet</h3>
+                    <p class="portfolio-category">Facebook & Instagram</p>
+                    <a href="#" class="portfolio-link">Ver Case</a>
+                </div>
+            </div>
+            
+            <!-- Item 4 -->
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/600x400/2a2a72/ffffff?text=Moda" alt="Case Moda" class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">E-commerce de Moda</h3>
+                    <p class="portfolio-category">Social Media Full</p>
+                    <a href="#" class="portfolio-link">Ver Case</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de CTA -->
+    <section class="cta-section" id="contact">
+        <div class="cta-content">
+            <h2 class="cta-title">Pronto para transformar suas redes sociais?</h2>
+            <p class="cta-text">Agende uma consulta gratuita com nosso time de especialistas e descubra como podemos ajudar sua marca a alcançar resultados excepcionais nas redes sociais.</p>
+            <a href="#" class="cta-button">Agendar Consulta</a>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <img src="https://via.placeholder.com/150x50?text=GroupTechMVR" alt="GroupTechMVR" class="footer-logo">
+        <p class="footer-text">Especialistas em Social Media Marketing dedicados a impulsionar sua presença digital e gerar resultados tangíveis para seu negócio.</p>
+        
+        <div class="footer-social">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+        
+        <div class="footer-links">
+            <a href="#" class="footer-link">Termos de Serviço</a>
+            <a href="#" class="footer-link">Política de Privacidade</a>
+            <a href="#" class="footer-link">FAQ</a>
+            <a href="#" class="footer-link">Blog</a>
+        </div>
+        
+        <p class="footer-copyright">© 2023 GroupTechMVR. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Efeito de Cursor Personalizado
+        const cursor = document.querySelector('.custom-cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+        
+        // Efeito de hover nos links
+        const hoverElements = document.querySelectorAll('a, button, .service-card, .portfolio-item');
+        
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorFollower.style.width = '60px';
+                cursorFollower.style.height = '60px';
+                cursorFollower.style.borderWidth = '1px';
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                cursorFollower.style.width = '40px';
+                cursorFollower.style.height = '40px';
+                cursorFollower.style.borderWidth = '2px';
+            });
+        });
+        
+        // Efeito de Partículas
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#6e45e2"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#6e45e2",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Animação ao rolar a página
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.service-card, .process-step, .pricing-card, .portfolio-item');
+            
+            elements.forEach(el => {
+                const elementPosition = el.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Inicializar elementos com opacidade 0 para animação
+        document.querySelectorAll('.service-card, .process-step, .pricing-card, .portfolio-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.5s ease';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Smooth scrolling para links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
